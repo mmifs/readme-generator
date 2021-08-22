@@ -46,13 +46,11 @@ inquirer
         choices: ['Yes', 'No']
       }*/
   ])
-  .then(function(data) {
-      console.log(data);
-    const [title, install, descript, license, features] = data;
-    console.log(data);
-    console.log(data.title);
-        fs.writeFile('./newreadme.md', makeReadme(title, install, descript, license, features)
-            )}
+    .then(function(data) {
+        console.log(data);
+        console.log(data.title);
+            fs.writeFile('./newreadme.md', `${data.title}, ${data.install}, ${data.descript}, ${data.license}, ${data.features}`, function (err) {}
+                )}
     );
 
 //data not iterable error, try json ******
