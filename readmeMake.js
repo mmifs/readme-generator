@@ -8,7 +8,32 @@ const makeTOC = (data) => {
         var table = null
     };
     return table
-}
+};
+
+const makeLicense = (data) => {
+    if (data.license = 'no license') {
+        var lic = "This project is not protected by any license. For more information, please contact the author.";
+    }
+    if (data.license = 'MIT') {
+        var lic = "This project is protect by an MIT license. For more information, please contact the author.";
+    } else {
+        var lic = "license error";
+    };
+    return lic
+};
+
+const addBadge = (data) => {
+    console.log(data.license);
+    if (data.license === 'MIT') {
+        var licbadge = '![APM](https://img.shields.io/apm/l/vim-mode?style=plastic)'
+    }
+    if (data.license === 'no license') {
+        var licbadge = null
+    } else {
+        var licbadge = null
+    }
+    return licbadge
+};
 
 console.log('Welcome to the Professional Readme Generator™!');
 
@@ -64,9 +89,12 @@ inquirer
   ])
     .then(function(data) {
         let table = makeTOC(data);
+        let lic = makeLicense(data);
+        let licbadge = addBadge(data);
             fs.writeFile('./newreadme.md', 
 
-`# ${data.title} 
+`${licbadge}
+# ${data.title} 
 
 ## Description
 
@@ -85,7 +113,7 @@ ${data.usage}
 
 ## License
 
-This Readme is protected with a/an ${data.license} license. For more information, please contact the author.
+${lic}
 
 
 ## Contributing
