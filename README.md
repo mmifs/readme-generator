@@ -24,6 +24,8 @@ To install this application, the user must ensure they have gitbash terminal, an
 
 To use the application, open the local directory containing readmeMake.js in the gitbash terminal and launch the program with the command 'node readmeMake.js'. The application will then prompt the user for what is to be contained within the different sections. Upon completion, a new file will be written to the local directory named 'newreadme.md'. Please rename the file prior to using the application again, as it will overwrite the previous 'newreadme.md' if there is an existing file already in the local directory.
 
+A detailed guide for what is expected within a professional readme is included in the repository, please read readme-guide.md in full for more information.
+
 
 ## License
 
