@@ -1,18 +1,27 @@
-# title 
+# My Title 
 
 ## Description
 
-des
+My Description
+
+## Table of Contents
+
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](contributing)
+* [Tests](#tests)
+* [Questions](#questions)
 
 
 ## Installation
 
-install
+Installation Instructions
 
 
 ## Usage
 
-usa
+Usage Instructions
 
 
 ## License
@@ -22,14 +31,14 @@ This Readme is protected with a/an MIT license. For more information, please con
 
 ## Contributing
 
-con
+Contribution Instructions
 
 
 ## Tests
 
-test
+Test Info
 
 
 ## Questions
 
-faq
+FAQs

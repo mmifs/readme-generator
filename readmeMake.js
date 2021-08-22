@@ -1,10 +1,17 @@
 const fs = require('fs');
 var inquirer = require('inquirer');
 
+const makeTOC = (data) => {
+    if (data.toc) {
+        var table = "\n\n## Table of Contents\n\n* [Installation](#installation)\n* [Usage](#usage)\n* [License](#license)\n* [Contributing](contributing)\n* [Tests](#tests)\n* [Questions](#questions)"
+    } else {
+        var table = null
+    };
+    return table
+}
+
 console.log('Welcome to the Professional Readme Generator™!');
-const makeReadme = () => {
-    console.log(data);
-};
+
 inquirer
   .prompt([
     {
@@ -56,23 +63,14 @@ inquirer
     
   ])
     .then(function(data) {
-        /*if (data.toc === true) {
-            let table = '## Table of Contents\n* [Installation](#installation)\n* [Usage](#usage)\n* [License](#license)\n* [Contributing](contributing)\n* [Tests](#tests)\n* [Questions](#questions'
-        } else {
-            let table = null
-        }
-        console.log(table);*/
-        console.log(data);
+        let table = makeTOC(data);
             fs.writeFile('./newreadme.md', 
 
 `# ${data.title} 
 
 ## Description
 
-${data.descript}
-
-
-${table}
+${data.descript}${table}
 
 
 ## Installation
