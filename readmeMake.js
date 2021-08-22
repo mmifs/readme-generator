@@ -3,7 +3,7 @@ var inquirer = require('inquirer');
 
 const makeTOC = (data) => {
     if (data.toc) {
-        var table = "\n\n## Table of Contents\n\n* [Installation](#installation)\n* [Usage](#usage)\n* [License](#license)\n* [Contributing](contributing)\n* [Tests](#tests)\n* [Questions](#questions)"
+        var table = "\n\n## Table of Contents\n\n* [Installation](#installation)\n* [Usage](#usage)\n* [License](#license)\n* [Contributing](#contributing)\n* [Tests](#tests)\n* [Questions](#questions)"
     } else {
         var table = null
     };
