@@ -12,7 +12,16 @@ inquirer
         name: 'title',
         message: 'What will be the title of your readme?'
     },
-    
+    {
+        type: 'input',
+        message: 'Please enter your description',
+        name: 'descript'
+    },
+    {
+        type: 'confirm',
+        message: 'Would you like to include a table of contents?',
+        name: 'toc',  
+    },
     {
         type: 'input',
         message: 'Please enter your installation instructions',
@@ -21,12 +30,7 @@ inquirer
     {
         type: 'input',
         message: 'Please enter your usage instructions',
-        name: 'install'
-    },
-    {
-        type: 'input',
-        message: 'Please enter your description',
-        name: 'descript'
+        name: 'usage'
     },
     {
         type: 'list',
@@ -36,30 +40,70 @@ inquirer
     },
     {
         type: 'input',
-        message: 'Please describe the features of your software',
-        name: 'features'
+        message: 'Please enter instructions on how someone might contribute to your work',
+        name: 'contrib'
+    },
+    {
+        type: 'input',
+        message: 'Please enter test information for users',
+        name: 'tests'
+    },
+    {
+        type: 'input',
+        message: 'Please enter the information to be included in an FAQ section',
+        name: 'questions'
     }
-    /* TOC question *//*{
-        type: 'list',
-        message: 'Would you like to include a table of contents?',
-        name: 'contact',
-        choices: ['Yes', 'No']
-      }*/
+    
   ])
     .then(function(data) {
+        /*if (data.toc === true) {
+            let table = '## Table of Contents\n* [Installation](#installation)\n* [Usage](#usage)\n* [License](#license)\n* [Contributing](contributing)\n* [Tests](#tests)\n* [Questions](#questions'
+        } else {
+            let table = null
+        }
+        console.log(table);*/
         console.log(data);
-        console.log(data.title);
-            fs.writeFile('./newreadme.md', `${data.title}, ${data.install}, ${data.descript}, ${data.license}, ${data.features}`, function (err) {}
+            fs.writeFile('./newreadme.md', 
+
+`# ${data.title} 
+
+## Description
+
+${data.descript}
+
+
+${table}
+
+
+## Installation
+
+${data.install}
+
+
+## Usage
+
+${data.usage}
+
+
+## License
+
+This Readme is protected with a/an ${data.license} license. For more information, please contact the author.
+
+
+## Contributing
+
+${data.contrib}
+
+
+## Tests
+
+${data.tests}
+
+
+## Questions
+
+${data.questions}`
+,
+             function (err) {}
                 )}
     );
-
-//data not iterable error, try json ******
-
-
-
-    //rl.question("What is your project's title?", (title) => {
-    //console.log(`Your readme title is + ${title}`);
-    //rl.close();
-//};
-
-// readline.question()
