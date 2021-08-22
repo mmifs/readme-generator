@@ -11,11 +11,11 @@ const makeTOC = (data) => {
 };
 
 const makeLicense = (data) => {
-    if (data.license = 'no license') {
+    if (data.license === 'no license') {
         var lic = "This project is not protected by any license. For more information, please contact the author.";
     }
-    if (data.license = 'MIT') {
-        var lic = "This project is protect by an MIT license. For more information, please contact the author.";
+    if (data.license === 'MIT') {
+        var lic = "This project is protected by an MIT license. For more information, please contact the author.";
     } else {
         var lic = "license error";
     };
@@ -23,22 +23,39 @@ const makeLicense = (data) => {
 };
 
 const addBadge = (data) => {
-    console.log(data.license);
     if (data.license === 'MIT') {
         var licbadge = '![APM](https://img.shields.io/apm/l/vim-mode?style=plastic)'
     }
-    if (data.license === 'no license') {
-        var licbadge = null
-    } else {
-        var licbadge = null
+    else {
+        var licbadge = null;
     }
-    return licbadge
+    return licbadge;
 };
+
+const makeUser = (data) => {
+    var userName = data.gUser;
+    return userName
+}
+
+const makeEmail = (data) => {
+    var uEmail = data.email;
+    return uEmail;
+}
 
 console.log('Welcome to the Professional Readme Generator™!');
 
 inquirer
   .prompt([
+    {
+        type: 'input',
+        name: 'gUser',
+        message: 'What is your github username?'
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'What is your contact email address?'
+    },
     {
         type: 'input',
         name: 'title',
@@ -80,17 +97,14 @@ inquirer
         message: 'Please enter test information for users',
         name: 'tests'
     },
-    {
-        type: 'input',
-        message: 'Please enter the information to be included in an FAQ section',
-        name: 'questions'
-    }
     
   ])
     .then(function(data) {
         let table = makeTOC(data);
         let lic = makeLicense(data);
         let licbadge = addBadge(data);
+        let userName = makeUser(data);
+        let uEmail = makeEmail(data);
             fs.writeFile('./newreadme.md', 
 
 `${licbadge}
@@ -128,7 +142,9 @@ ${data.tests}
 
 ## Questions
 
-${data.questions}`
+Github: https://github.com/${userName}
+
+Please forward any additional questions to my email: ${uEmail}`
 ,
              function (err) {}
                 )}

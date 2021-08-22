@@ -1,3 +1,4 @@
+![APM](https://img.shields.io/apm/l/vim-mode?style=plastic)
 # The Professional Readme Generator 
 
 ## Description
@@ -26,7 +27,7 @@ To use the application, open the local directory containing readmeMake.js in the
 
 ## License
 
-This Readme is protected with a/an MIT license. For more information, please contact the author.
+This project is protected by an MIT license. For more information, please contact the author.
 
 
 ## Contributing
@@ -36,9 +37,11 @@ I am not currently accepting partners to contribute to my repository directly. H
 
 ## Tests
 
-test info
+tests
 
 
 ## Questions
 
-FAQs
+Github: https://github.com/mmifs
+
+Please forward any additional questions to my email: placeholder@noemail.com
